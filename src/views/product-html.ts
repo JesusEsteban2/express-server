@@ -2,7 +2,7 @@ import { createHeader } from './components/header.js';
 import { createHead } from './components/head.js';
 import { createFooter } from './components/footer.js';
 
-const data = [
+export const data = [
     {
         id: 1,
         title: 'Essence Mascara Lash Princess',
@@ -304,7 +304,7 @@ export const listItems = data
     .map(
         (item) => /*html*/ `
             <li class="menu-tablet">
-                <a href="/product/:${item.id}">${item.title}</a>
+                <a href="/product/${item.id}">${item.title}</a>
             </li>
         `,
     )

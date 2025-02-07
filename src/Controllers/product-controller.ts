@@ -3,17 +3,19 @@ import { Request, Response } from 'express';
 import createDebug from 'debug';
 import { renderIndexHtml } from '../views/index-html.js';
 import { renderProductHtml } from '../views/product-html.js';
+import { renderDetailProductHtml } from '../views/detail-product-html.js';
 
 const debug = createDebug('app:product-controller');
 
 export class ProductController {
     readAll = (req: Request, res: Response) => {
-        debug('GET /users');
+        debug('app:Product Controller');
         res.send(renderProductHtml());
     };
     read = (req: Request, res: Response) => {
-        debug('app:Product Controller' + req.params.id);
-        res.send('GET /product/' + req.params.id);
+        debug('app:Product Controller #' + req.params.id);
+        const idnum = req.params.id as unknown as number;
+        res.send(renderDetailProductHtml(idnum - 1));
     };
 }
 
