@@ -75,15 +75,6 @@
     --sans-base: 'Manrope', sans-serif;
 }
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    overflow-wrap: break-word;
-}
-
 img,
 picture,
 video,
@@ -117,7 +108,7 @@ header {
     color: var(--color-secondary-gray);
     background-color: var(--color-secondary-background-gray);
 
-    .menu-header a {
+    .menu-header {
         display: flex;
         gap: var(--space);
         justify-content: center;

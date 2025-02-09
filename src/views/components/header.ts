@@ -1,12 +1,11 @@
-// import { html } from 'lit-html';
-
 const items = [
-    { label: 'Index', path: './' },
+    { label: 'Index', path: '/static/../' },
     { label: 'Product', path: './product' },
-    { label: 'About', path: 'about.html' },
+    { label: 'About', path: '/static/about.html' },
 ];
 
 export const menuItems = items
+
     .map(
         (item) => /*html*/ `
             <li class="menu-tablet">
@@ -17,14 +16,14 @@ export const menuItems = items
     .join('');
 
 export function createHeader(title: string) {
-    const img = './assets/logo-golden-bisque.svg';
+    const img = '"/static/assets/logo-golden-bisque.svg"';
     const cssClass = 'main-header';
     const headerTemplate = `
         <header class="${cssClass}">
             <nav>
                 <ul>
                     <li class="menu-header">
-                        <a href="./index.html">
+                        <a href="/static/../">
                             <img src=${img} width="50" alt="Logo" />
                             <h1 id="header1" data-id="1" class="h2">
                                 ${title}

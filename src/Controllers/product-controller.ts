@@ -9,19 +9,20 @@ const debug = createDebug('app:product-controller');
 
 export class ProductController {
     readAll = (req: Request, res: Response) => {
-        debug('app:Product Controller');
+        debug('app:Product Controller ');
         res.send(renderProductHtml());
     };
     read = (req: Request, res: Response) => {
-        debug('app:Product Controller #' + req.params.id);
-        const idnum = req.params.id as unknown as number;
-        res.send(renderDetailProductHtml(idnum - 1));
+        const id = req.params.id;
+        res.setHeader('Content-Type', 'text/html; charset=utf-8');
+        debug('app:Product Detail ' + id);
+        res.send(renderDetailProductHtml(id));
     };
 }
 
 export class GetController {
     index = (req: Request, res: Response) => {
-        debug('app: GetController-index');
+        debug('app:GetController-index');
         res.setHeader('Content-Type', 'text/html; charset=utf-8');
         res.send(renderIndexHtml());
     };

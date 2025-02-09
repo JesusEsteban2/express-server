@@ -10,6 +10,7 @@ export const app = express();
 
 const debug = createDebug('app:app');
 const publicPath = resolve(resolve(), 'public');
+console.log(publicPath);
 
 app.disable('x-powered-by');
 
@@ -20,7 +21,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
     next();
 });
 
-app.use(express.static(publicPath));
+app.use('/static', express.static('public'));
 
 app.use(async (req: Request, res: Response, next: NextFunction) => {
     if (req.url === '/favicon.ico') {

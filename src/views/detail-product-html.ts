@@ -3,9 +3,11 @@ import { createHead } from './components/head.js';
 import { createFooter } from './components/footer.js';
 import { data } from './product-html.js';
 
-export const renderDetailProductHtml = (id: number) => {
+export const renderDetailProductHtml = (idP: string) => {
+    const found = data.find((item) => item.id === Number(idP));
     const title = 'Detalle de producto | Cliente de Express';
-    const pageTitle = 'Producto ' + (id + 1);
+    if (!found) return;
+    const pageTitle = 'Producto ' + found.id;
     return /*html*/ `
         <!DOCTYPE html>
         <html lang="es">
@@ -14,11 +16,11 @@ export const renderDetailProductHtml = (id: number) => {
                 ${createHeader(pageTitle)}
                 <main>
                     <section>
-                    <p>Id: ${data[id].id}</p>
-                    <p>Titulo:${data[id].title}</p>
-                    <p>Price:${data[id].price}</p>
-                    <p>Descripción: ${data[id].description}</p>
-                    <img src="${data[id].images[0]}" alt="${data[id].title}" width="300">
+                    <p>Id: ${found.id}</p>
+                    <p>Titulo:${found.title}</p>
+                    <p>Price:${found.price}</p>
+                    <p>Descripción: ${found.description}</p>
+                    <img src="${found.images[0]}" alt="${found.title}" width="300">
                     </section>
                 </main>
                 ${createFooter()}

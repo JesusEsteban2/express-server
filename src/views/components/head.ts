@@ -1,5 +1,3 @@
-// import { html } from 'lit-html';
-
 export const createHead = (title: string) => {
     return `
         <head>
@@ -9,9 +7,9 @@ export const createHead = (title: string) => {
                 content="width=device-width, initial-scale=1.0"
             />
             <title>${title}</title>
-            <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml" />
-            <link rel="stylesheet" href="main.css" />
-            <script src="index.js" type="module" defer></script>
+            <link rel="shortcut icon" href="/static/favicon.svg" type="image/svg+xml" />
+            <link rel="stylesheet" href="/static/main.css" />
+            <script src="/static/index.js" type="module" defer></script>
         </head>
     `;
 };
